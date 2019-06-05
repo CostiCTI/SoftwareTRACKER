@@ -1,0 +1,191 @@
+<html>
+
+<head>
+    <title> Home </title>
+</head>
+
+<body>
+    <form method="post">
+            <label> Instance </label>
+            <select name="instanceName">
+                    <option value="Bugs">Bugs</option>
+                    <option value="Code_smells">Code_smells</option>
+                    <option value="Effort">Effort</option>
+                    <option value="Tasks">Tasks</option>
+                    <option value="Vulnerabilities">Vulnerabilities</option>
+            </select>
+            
+            <select name="lens">
+                <option value="10">10 values</option>
+                <option value="20">20 values</option>
+                <option value="30">30 values</option>
+                <option value="50">50 values</option>
+                <option value="100">100 values</option>
+            </select>
+
+            <select name="train">
+                <option value="1000">Train level 1</option>
+                <option value="2000">Train level 2</option>
+                <option value="4000">Train level 3</option>
+                <option value="6000">Train level 4</option>
+                <option value="10000">Train level 5</option>
+            </select>
+
+            <button type="submit" class="sub2" name="but" value="hist">Historical</button>
+            <button type="submit" class="sub" name="but" value="fore">Forecast</button>
+            
+            <div class="ceva"> <br> <div class="loader"></div></div> 
+
+            <!--<input type="submit" value="Submit" class="button">-->
+    </form>
+    
+    
+    <div style=" width: 95%">
+        <embed type="image/svg+xml" src= {{ gdata1|safe }} />
+        <br>
+        <div style="float: left;" class="p1"> &#9679 Historical values </div>
+        <div style="padding-left: 55%;" class="p2"> &#9679 Forecasted values </div>
+    </div>
+
+    <br>
+    <br>
+    <button class="collapsible">!</button>
+    <div class="content">
+        <p style="font-size: 14px;"><b> Instance: </b> Name of the Measure instance </p>
+        <p style="font-size: 14px;"><b> Values: </b> Number of forcasted values </p>
+        <p style="font-size: 14px;"><b> Train level: </b> Bigger train level means more accurate forecasted values but also more time to wait (level 2 or 3 suggested) </p>
+    </div>
+
+ <style>
+
+     .sub {
+         background-color: paleturquoise;
+         font-size: 20px;
+     }
+
+     .sub2 {
+         background-color: rgb(204, 135, 135);
+         font-size: 20px;
+     }
+
+    .p1 {
+        color: rgb(0, 45, 179);
+        font-size: 26px;
+        padding-left: 5%;
+        font-weight: bold;
+        background: rgba(249,249,249,1);
+    }
+
+    .p2 {
+        color: rgb(255, 51, 0);
+        font-size: 26px;
+        padding-left: 5%;
+        font-weight: bold;
+        background: rgba(249,249,249,1);
+    }
+
+    .button {
+        background-color: #008CBA;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 28px;
+        text-align: center;
+        cursor: pointer;
+        width: 35px;
+    }
+
+    .collapsible {
+    background-color: rgb(197, 78, 78);
+    color: white;
+    cursor: pointer;
+    width: 40px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 42px;
+    }
+
+    .active, .collapsible:hover {
+    background-color: rgb(202, 174, 169);
+    }
+
+    .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    }
+
+    .ceva {
+    display: none;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    }
+
+    .loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
+
+    
+</style>
+
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+
+        var coll2 = document.getElementsByClassName("sub");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll2[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+
+        document.getElementById("load").onclick = function() {
+            //disable
+            this.disabled = true;
+
+            //do some validation stuff
+        }
+
+
+        </script>
+
+    
+
+</body>
+</html>

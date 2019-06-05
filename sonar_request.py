@@ -17,9 +17,8 @@ def get_sonar_historical_data(project_name):
     '''
 
     # metrics list
-    metrics = ['ncloc', 'complexity', 'bugs', 'code_smells', 'comment_lines', 
-               'classes', 'files', 'functions', 'violations', 'major_violations',
-               'minor_violations', 'vulnerabilities', 'lines']
+    metrics = ['ncloc', 'bugs', 'code_smells', 'comment_lines', 
+               'classes']
 
     comp = project_name
     mlist = ""
@@ -59,9 +58,8 @@ def get_sonar_current_data(project_name):
     '''
 
     # metrics list
-    metrics = ['ncloc', 'complexity', 'bugs', 'code_smells', 'comment_lines', 
-               'classes', 'files', 'functions', 'violations', 'major_violations',
-               'minor_violations', 'vulnerabilities', 'lines']
+    metrics = ['ncloc', 'bugs', 'code_smells', 'comment_lines', 
+               'classes']
 
     comp = project_name
     mlist = ""
@@ -86,7 +84,7 @@ def get_sonar_current_data(project_name):
 
 
 if __name__ == '__main__':
-    data = get_sonar_historical_data('project_name')
+    data = get_sonar_historical_data('flexx')
     pp.pprint(data)
-    data = get_sonar_current_data('project_name')
-    pp.pprint(data)
+    #data = get_sonar_current_data('project_name')
+    #pp.pprint(data)
